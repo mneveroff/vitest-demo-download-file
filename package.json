@@ -1,0 +1,46 @@
+{
+  "name": "vitest-demo-download-file",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint . && tsc --noEmit",
+    "preview": "vite preview",
+    "test": "pnpm test:chromium && pnpm test:firefox && pnpm test:webkit",
+    "test:chromium": "vitest run --browser.name chromium",
+    "test:firefox": "vitest run --browser.name firefox",
+    "test:webkit": "vitest run --browser.name webkit"
+  },
+  "dependencies": {
+    "@testing-library/react": "^16.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@types/node": "^22.15.3",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/browser": "^3.1.2",
+    "eslint": "^9.22.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "playwright": "^1.52.0",
+    "playwright-core": "^1.52.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.26.1",
+    "vite": "^6.3.1",
+    "vitest": "^3.1.2",
+    "vitest-browser-react": "^0.1.1"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}
