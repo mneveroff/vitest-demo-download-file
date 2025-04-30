@@ -26,3 +26,4 @@ dist-ssr
 # Test artifacts
 tests/__downloads__/*
 tests/__screenshots__/*
+tests/__reports__/*

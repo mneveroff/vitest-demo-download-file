@@ -20,6 +20,18 @@ export default function Download() {
             Download with timeout
           </button>
         </div>
+        <div>
+          <button onClick={() => downloadFile({ shouldFail: true })}>
+            Trigger download error
+          </button>
+        </div>
+        <div>
+          <button
+            onClick={() => downloadFile({ shouldFailWithNonError: true })}
+          >
+            Trigger non-Error download error
+          </button>
+        </div>
       </div>
       <div className="download-status">
         {isDownloading && <p>Downloading...</p>}

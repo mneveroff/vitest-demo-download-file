@@ -83,4 +83,50 @@ describe("Download file", () => {
       await removeFile(targetPath);
     }
   );
+
+  /** Getting test coverage for the error handling */
+  it(
+    "🟢 should display an error message when download fails",
+    { timeout: TIMEOUT },
+    async () => {
+      const errorButton = screen.getByText("Trigger download error");
+      expect(errorButton).toBeVisible();
+      await userEvent.click(errorButton);
+
+      // Assert that the error message is displayed
+      const errorMessage = await screen.findByText(
+        /Error: Simulated download generation failure/
+      );
+      expect(errorMessage).toBeVisible();
+
+      // Assert that the downloading message is not present
+      const downloadingMessage = screen.queryByText("Downloading...");
+      expect(downloadingMessage).toBeNull();
+
+      // We don't expect a download to happen, so we don't call downloadFile or listenForFileDownload
+    }
+  );
+
+  /** Getting test coverage for the error handling */
+  it(
+    "🟢 should display a generic error message when download fails with non-Error",
+    { timeout: TIMEOUT },
+    async () => {
+      const nonErrorButton = screen.getByText(
+        "Trigger non-Error download error"
+      );
+      expect(nonErrorButton).toBeVisible();
+      await userEvent.click(nonErrorButton);
+
+      // Assert that the generic error message is displayed
+      const errorMessage = await screen.findByText(
+        /Error: An unknown error occurred/
+      );
+      expect(errorMessage).toBeVisible();
+
+      // Assert that the downloading message is not present
+      const downloadingMessage = screen.queryByText("Downloading...");
+      expect(downloadingMessage).toBeNull();
+    }
+  );
 });

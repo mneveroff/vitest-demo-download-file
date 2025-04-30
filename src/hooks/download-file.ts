@@ -16,7 +16,12 @@ export const useDownloadGeneratedFile = () => {
     const [error, setError] = useState<string | null>(null);
 
     // We're imitating a real download by waiting 1 second and then creating a blob
-    const downloadFile = async ({filename = uuidv4(), timeout = 0} = {}) => {
+    const downloadFile = async ({
+        filename = uuidv4(), 
+        timeout = 0, 
+        shouldFail = false, 
+        shouldFailWithNonError = false
+    } = {}) => {
         setIsDownloading(true);
         setError(null);
         let objectUrl: string | null = null;
@@ -25,6 +30,13 @@ export const useDownloadGeneratedFile = () => {
         await new Promise(resolve => setTimeout(resolve, timeout));
 
         try {
+            if (shouldFail) {
+                throw new Error("Simulated download generation failure");
+            }
+            if (shouldFailWithNonError) {
+                // Throw something that is not an instance of Error
+                throw { message: "Simulated non-error failure", code: 500 };
+            }
             const fileSizeInBytes = 1 * 1024 * 1024; // (1 MB = 1024 * 1024 bytes)
 
             const randomData = generateRandomData(fileSizeInBytes);
