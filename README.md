@@ -1,10 +1,18 @@
-# NeverOff Demo - vitest-file-download
+![Vitest File Download Cover Image](assets/cover-visual.png)
 
-![Image displaying 100% coverage of download process](./coverage.jpg)
+# NeverOff Demo - vitest-file-download
 
 This repository demonstrates how to test file downloads using Vitest Browser mode.
 
-Read the blog post [here](https://neveroff.dev/blog/testing-file-download-in-vitest-browser/).
+<video src="assets/demo.mp4" controls>
+  Your browser does not support the video tag.
+</video>
+
+And an example of `istambul` coverage report.
+
+![Image displaying 100% coverage of download process](./coverage.jpg)
+
+### Read the blog post [here](https://neveroff.dev/blog/testing-file-download-in-vitest-browser/).
 
 ## Getting started
 
