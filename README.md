@@ -6,7 +6,7 @@ This repository demonstrates how to test file downloads using Vitest Browser mod
 
 https://github.com/user-attachments/assets/024c8290-0b7f-4369-b4b3-b3fe5a427f1c
 
-And an example of `istambul` coverage report.
+And an example of `istanbul` coverage report.
 
 ![Image displaying 100% coverage of download process](./coverage.jpg)
 
