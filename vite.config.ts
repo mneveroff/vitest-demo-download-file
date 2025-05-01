@@ -1,3 +1,4 @@
+/// <reference types="@vitest/browser/providers/playwright" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { listenForFileDownload, finishFileDownload, downloadFile, triggerAndDownloadFile } from './tests/command-download';
@@ -7,6 +8,12 @@ import { coverageConfigDefaults } from 'vitest/config';
 export default defineConfig({
   plugins: [react()],
   test: {
+    css: {
+      include: [/.+/],
+      modules: {
+        classNameStrategy: 'non-scoped',
+      },
+    },
     reporters: [
       'default',
       ['junit', { outputFile: './tests/__reports__/unit-report.xml' }],
@@ -20,21 +27,19 @@ export default defineConfig({
       reporter: [
         'text',
         'html',
-        'clover',
-        'json',
         'cobertura',
-        ['lcov', { projectRoot: './src' }],
       ],
       reportsDirectory: './tests/__reports__',
     },
     browser: {
       enabled: true,
+      viewport: { width: 1280, height: 720 },
       provider: 'playwright',
       ui: false,
       instances: [
-        { browser: 'chromium' },
-        { browser: 'firefox' },
-        { browser: 'webkit' },
+        { browser: 'chromium', context: { colorScheme: 'dark' } },
+        { browser: 'firefox', context: { colorScheme: 'dark' } },
+        { browser: 'webkit', context: { colorScheme: 'dark' } },
       ],
       commands: {
         listenForFileDownload,

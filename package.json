@@ -9,9 +9,9 @@
     "lint": "eslint . && tsc --noEmit",
     "preview": "vite preview",
     "test": "pnpm test:chromium && pnpm test:firefox && pnpm test:webkit",
-    "test:chromium": "vitest run --browser.name chromium",
-    "test:firefox": "vitest run --browser.name firefox",
-    "test:webkit": "vitest run --browser.name webkit"
+    "test:chromium": "vitest run --browser.name chromium --coverage",
+    "test:firefox": "vitest run --browser.name firefox --coverage",
+    "test:webkit": "vitest run --browser.name webkit --coverage"
   },
   "dependencies": {
     "@testing-library/react": "^16.3.0",

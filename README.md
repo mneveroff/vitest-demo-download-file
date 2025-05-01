@@ -4,7 +4,7 @@
 
 This repository demonstrates how to test file downloads using Vitest Browser mode.
 
-Read the blog post [here](neveroff.dev/blog/testing-file-download-in-vitest-browser/).
+Read the blog post [here](https://neveroff.dev/blog/testing-file-download-in-vitest-browser/).
 
 ## Getting started
 

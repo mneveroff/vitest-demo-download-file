@@ -1,9 +1,8 @@
-import logo from './assets/logo.svg'
-import './App.css'  
-import Download from './components/download'
+import logo from "./assets/logo.svg";
+import "./App.css";
+import Download from "./components/download";
 
 function App() {
-
   return (
     <>
       <div>
@@ -14,13 +13,14 @@ function App() {
       <h1>NeverOff Demo</h1>
       <h2>vitest-file-download</h2>
       <p>
-        This is a demo of testing file download via vitest. Read the blog post <a href="https://neveroff.dev/blog/vitest-file-download">here</a>.
+        This is a demo of testing file download via vitest. Read the blog post{" "}
+        <a href="https://neveroff.dev/blog/vitest-file-download">here</a>.
       </p>
       <div className="card">
         <Download />
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

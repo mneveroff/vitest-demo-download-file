@@ -3,13 +3,20 @@ import { userEvent, commands, server } from "@vitest/browser/context";
 import { screen, render, cleanup } from "@testing-library/react";
 import App from "../src/App";
 import React from "react";
+import "../src/index.css";
+import "../src/App.css";
 
 const TIMEOUT = 5_000;
 const { readFile, removeFile } = server.commands;
 
 describe("Download file", () => {
   beforeEach(async () => {
-    render(<App />);
+    render(
+      <div id="root">
+        <App />
+      </div>,
+      { container: document.body }
+    );
   });
 
   afterEach(async () => {
@@ -37,6 +44,7 @@ describe("Download file", () => {
       const fileContent = await readFile(targetPath);
       expect(fileContent).toBeDefined();
       expect(fileContent.length).toBeGreaterThan(0);
+      await removeFile(targetPath);
     }
   );
 
