@@ -4,9 +4,7 @@
 
 This repository demonstrates how to test file downloads using Vitest Browser mode.
 
-<video src="assets/demo.mp4" controls>
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/024c8290-0b7f-4369-b4b3-b3fe5a427f1c
 
 And an example of `istambul` coverage report.
 
