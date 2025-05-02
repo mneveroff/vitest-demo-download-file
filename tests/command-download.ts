@@ -42,14 +42,9 @@ export const triggerAndDownloadFile: BrowserCommand<[string]> = async (
   ctx,
   elementText
 ): Promise<string> => {
-  const page = ctx.page;
-
-  // Because the playwright page initially renders the vitest runner, we need to get the child frame, see https://vitest.dev/guide/browser/playwright.html#configuring-playwright
-  const testFrame = page.mainFrame().childFrames()[0];
-
   const downloadPromise = listenForFileDownload(ctx);
 
-  const element = await testFrame.getByText(elementText);
+  const element = ctx.iframe.getByText(elementText);
   await element.click();
 
   return finishFileDownload(ctx, downloadPromise);
